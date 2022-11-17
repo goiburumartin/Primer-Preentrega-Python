@@ -1,0 +1,37 @@
+{% extends "AppCoder/Padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    
+    <h1>-- Busqueda -- </h1>
+
+
+    <h3>Podes buscar una pagina por su tema:</h3>
+
+    <form action="/AppCoder/buscar_pagina/" method="GET">
+        <input type="text" name="tema" >
+        <input type="submit" value="Buscar">
+    </form>
+
+    
+
+    {% if pagina %}
+
+    <p>Se encontro: "{{nombre}}"</p>
+
+    <ul>
+		<li> {{pagina.nombre}} </li>
+		<li> {{pagina.tema}} </li>
+        <li> {{pagina.integrantes}} </li>
+    </ul>
+    {% endif %}
+
+    {% if error %}
+        <p>{{error}}</p>
+
+    {% endif %}
+
+{% endblock %}
